@@ -106,7 +106,10 @@
     #downloadBtn:hover {
       background-color: #008e63;
     }
-
+    .grid {
+        display: flex;
+        flex-direction: row;
+    }
     .thankyou {
       position: absolute;
       bottom: 0;
@@ -150,6 +153,7 @@
       .slideshow-container {
         height: 70vh;
       }
+      
 
       #downloadBtn {
         font-size: 0.9em;
@@ -166,7 +170,8 @@
     </p>
   </header>
 
-  <div class="slideshow-container" id="slideshow">
+  <div class="grid">
+    <div class="slideshow-container" id="slideshow">
     <div class="slides-wrapper">
       <div class="slide"><img src="Saved Pictures/Sunset_at_Cox's_Bazar.jpg" alt=""></div>
       <div class="slide"><img src="Saved Pictures/Shatgombuj.avif" alt=""></div>
@@ -194,20 +199,21 @@
   </div>
 
 
- <!-- Background Music -->
-<audio id="bg-music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
 
 
 
-   <div class="thankyou">
-    <p>Thank you<br>
-    From Room 322 Pujiang-06<br>
-    Md Sifat Ul Islam<br>
-    Abrar Labib Azadi<br>
-    Md. Abid Hossain</p>
+    <div class="thankyou">
+      <p>Thank you<br>
+      From Room 322 Pujiang-06<br>
+      Md Sifat Ul Islam<br>
+      Abrar Labib Azadi<br>
+      Md. Abid Hossain</p>
+    </div>
   </div>
 
 
