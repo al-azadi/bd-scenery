@@ -107,12 +107,15 @@
       background-color: #008e63;
     }
 
-    footer {
-      background: #006a4e;
-      color: white;
-      padding: 15px;
-      font-size: 0.9em;
-      margin-top: 40px;
+    .thankyou {
+      position: absolute;
+      bottom: 0;
+      width: 20%;
+      text-align: center;
+      font-size: 1em;
+      background: rgba(251, 4, 4, 0.973);
+      padding: 5px;
+      letter-spacing: 1px;
     }
 
     #musicControl {
@@ -190,17 +193,23 @@
     <a class="next" onclick="changeSlide(1)">❯</a>
   </div>
 
-  <button id="downloadBtn">Download Photo ⬇️</button>
 
-  <!-- Music -->
-  <button id="musicControl">Play Music 🎵</button>
-  <audio id="bgMusic" loop>
-    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_2c7e8b6f1f.mp3" type="audio/mpeg">
-  </audio>
+ <!-- Background Music -->
+<audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-  <footer>
-    © 2025 Beautiful Bangladesh | Designed with 💚
-  </footer>
+
+
+
+   <div class="thankyou">
+    <p>Thank you<br>
+    From Room 322 Pujiang-06<br>
+    Md Sifat Ul Islam<br>
+    Abrar Labib Azadi<br>
+    Md. Abid Hossain</p>
+  </div>
+
 
   <script>
     const slidesWrapper = document.querySelector(".slides-wrapper");
@@ -223,7 +232,7 @@
       document.getElementById("downloadBtn").onclick = () => {
         const a = document.createElement("a");
         a.href = currentImg;
-        a.download = `Bangladesh_Scenery_${slideIndex + 1}.jpg`;
+        a.download = `Photos${slideIndex + 1}.jpg`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -259,19 +268,13 @@
     });
 
     // Music toggle
-    const music = document.getElementById("bgMusic");
-    const btn = document.getElementById("musicControl");
-    let isPlaying = false;
-    btn.addEventListener("click", () => {
-      if (!isPlaying) {
-        music.play();
-        btn.textContent = "Pause Music ⏸️";
-      } else {
-        music.pause();
-        btn.textContent = "Play Music 🎵";
-      }
-      isPlaying = !isPlaying;
-    });
+  const bgMusic = document.getElementById('bg-music');
+
+  // Play after user clicks anywhere
+  document.body.addEventListener('click', () => {
+    bgMusic.play().catch(err => console.log('Autoplay blocked:', err));
+  }, { once: true });
+    
 
     showSlide(slideIndex);
     startAutoSlide();
